@@ -4,8 +4,8 @@ export default {
   'No Data': 'Brak danych',
 
   /* index.vue */
-  'Total': 'Wszystkich: ',
-  ',': '，',
+  'Total': 'Wszystkich:',
+  ',': ',',
 
   /* PageSizeSelect.vue */
   'items / page': 'wierszy / stronę'
