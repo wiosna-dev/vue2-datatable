@@ -8,9 +8,9 @@
     </div>
 
     <tbl v-bind="$props" />
-    
-    <div v-if="Pagination" class="row" style="margin-top: 10px">
-      <div class="col-sm-6" style="white-space: nowrap">
+
+    <div v-if="Pagination && RenderPageSizeSelect" class="row" style="margin-top: 10px">
+      <div v-if="RenderPageSizeSelect" class="col-sm-6" style="white-space: nowrap">
         <strong>
           {{ $i18nForDatatable('Total') }} {{ total }} {{ $i18nForDatatable(',') }}
         </strong>
@@ -19,6 +19,12 @@
       <div class="col-sm-6">
         <pagination class="pull-right" :total="total" :query="query" />
       </div>
+    </div>
+    <div v-else-if="Pagination">
+        <div class="col-sm-12">
+          <pagination :total="total" :query="query" style="justify-content: center"/>
+        </div>
+    </div>
     </div>
   </div>
 </template>
