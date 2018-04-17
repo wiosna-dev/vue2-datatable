@@ -6,7 +6,11 @@
           <td v-if="shouldRenderSelection">
             <multi-select :selection="selection" :row="item" />
           </td>
-          <td v-for="col in columns" v-if="col.tdDisplayCondition(item)" :class="col.tdClass" :style="col.tdStyle" :rowspan="item.rowspan">
+          <td v-for="col in columns"
+              v-if="typeof(col.tdDisplayCondition) == 'function' ? col.tdDisplayCondition(item) : true"
+              :class="col.tdClass"
+              :style="col.tdStyle"
+              :rowspan="item.rowspan">
             <!-- <td> component (tdComp) -->
             <component
               v-if="col.tdComp"
