@@ -7,20 +7,38 @@
       <slot />
     </div>
 
-    <tbl v-bind="$props" />
-
-    <div v-if="Pagination && RenderPageSizeSelect" class="row" style="margin-top: 10px">
-      <div v-if="RenderPageSizeSelect" class="col-sm-6" style="white-space: nowrap">
-        <strong>
-          {{ $i18nForDatatable('Total') }} {{ total }} {{ $i18nForDatatable(',') }}
-        </strong>
-        <page-size-select :query="query" :page-size-options="pageSizeOptions" />
+    <div v-if="PaginationTop && RenderTotalRowsNumber" class="row" style="margin-top: 10px">
+      <div class="col-sm-6">
+        <span v-if="RenderTotalRowsNumber" class="datatable-total-rows">
+          {{ $i18nForDatatable('Total') }} {{ total }}
+        </span>
       </div>
       <div class="col-sm-6">
         <pagination class="pull-right" :total="total" :query="query" />
       </div>
     </div>
-    <div v-else-if="Pagination">
+    <div v-else>
+      <div class="col-sm-12" v-if="RenderTotalRowsNumber">
+        <span class="datatable-total-rows">
+          {{ $i18nForDatatable('Total') }} {{ total }}
+        </span>
+      </div>
+      <div class="col-sm-12" v-if="PaginationTop">
+        <pagination class="pull-right" :total="total" :query="query" />
+      </div>
+    </div>
+
+    <tbl v-bind="$props" />
+
+    <div v-if="PaginationBottom && RenderPageSizeSelect" class="row" style="margin-top: 10px">
+      <div v-if="RenderPageSizeSelect" class="col-sm-6" style="white-space: nowrap">
+        <page-size-select v-if="RenderPageSizeSelect" :query="query" :page-size-options="pageSizeOptions" />
+      </div>
+      <div class="col-sm-6">
+        <pagination class="pull-right" :total="total" :query="query" />
+      </div>
+    </div>
+    <div v-else-if="PaginationBottom">
         <div class="col-sm-12">
           <pagination :total="total" :query="query" style="justify-content: center"/>
         </div>

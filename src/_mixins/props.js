@@ -8,7 +8,9 @@ export default {
     summary: Object, // an extra summary row
     xprops: Object, // extra custom props carrier passed to dynamic components
     HeaderSettings: { type: Boolean, default: true }, // whether to render `HeaderSettings`
-    Pagination: { type: Boolean, default: true }, // whether to render `Pagination`,
+    PaginationTop: { type: Boolean, default: false }, // whether to render `Pagination`,
+    PaginationBottom: { type: Boolean, default: true },
+    RenderTotalRowsNumber: { type: Boolean, default: false }, //whether to display total number of rows
     RenderPageSizeSelect: { type: Boolean, default: false }, // whether to render 'PageSizeSelect' (works only with Pagination enabled)
     pageSizeOptions: { type: Array, default: () => [10, 20, 40, 80, 100] },
     tblClass: [String, Object, Array], // classes for <table>
