@@ -4,7 +4,7 @@ export default {
   'No Data': 'Brak danych',
 
   /* index.vue */
-  'Total': 'Wszystkich:',
+  'Total': 'Znaleziono:',
   ',': ',',
 
   /* PageSizeSelect.vue */
