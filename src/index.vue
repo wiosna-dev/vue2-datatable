@@ -14,7 +14,7 @@
         </span>
       </div>
       <div class="col-sm-6">
-        <pagination class="pull-right" :total="total" :query="query" />
+        <pagination :class="{ 'pull-right': PaginationPosition == 'right' }" :total="total" :query="query" style="justify-content: center"/>
       </div>
     </div>
     <div v-else>
@@ -24,7 +24,7 @@
         </span>
       </div>
       <div class="col-sm-12" v-if="PaginationTop">
-        <pagination class="pull-right" :total="total" :query="query" />
+        <pagination :class="{ 'pull-right': PaginationPosition == 'right' }" :total="total" :query="query" style="justify-content: center"/>
       </div>
     </div>
 
@@ -40,7 +40,7 @@
     </div>
     <div v-else-if="PaginationBottom">
         <div class="col-sm-12">
-          <pagination :total="total" :query="query" style="justify-content: center"/>
+          <pagination :class="{ 'pull-right': PaginationPosition == 'right' }" :total="total" :query="query" style="justify-content: center"/>
         </div>
     </div>
     </div>
