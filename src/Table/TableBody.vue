@@ -10,7 +10,7 @@
               v-if="typeof(col.tdDisplayCondition) == 'function' ? col.tdDisplayCondition(item) : true"
               :class="col.tdClass"
               :style="col.tdStyle"
-              :rowspan="item.rowspan">
+              :rowspan="true === col.applyRowspan  ? item.rowspan : 1">
             <!-- <td> component (tdComp) -->
             <component
               v-if="col.tdComp"
