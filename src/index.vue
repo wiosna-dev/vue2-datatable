@@ -2,7 +2,7 @@
   <div name="Datatable">
     <div v-if="$slots.default || HeaderSettings" class="clearfix" style="margin-bottom: 10px">
       <header-settings v-if="HeaderSettings" class="pull-right"
-        :columns="columns" :support-backup="supportBackup">
+                       :columns="columns" :support-backup="supportBackup">
       </header-settings>
       <slot />
     </div>
@@ -38,11 +38,15 @@
         <pagination class="pull-right" :total="total" :query="query" />
       </div>
     </div>
-    <div v-else-if="PaginationBottom">
-        <div class="col-sm-12">
-          <pagination :class="{ 'pull-right': PaginationPosition == 'right' }" :total="total" :query="query" style="justify-content: center"/>
-        </div>
-    </div>
+    <div v-else-if="PaginationBottom" class="row pagination-bottom">
+      <div v-if="RenderTotalRowsNumberBottom" class="col-sm-6">
+        <span class="datatable-total-rows">
+          {{ $i18nForDatatable('Total') }} {{ total }}
+        </span>
+      </div>
+      <div :class="RenderTotalRowsNumberBottom ? 'col-sm-6' : 'col-sm-12'">
+        <pagination :class="{ 'pull-right': PaginationPosition == 'right' }" :total="total" :query="query" style="justify-content: center"/>
+      </div>
     </div>
   </div>
 </template>

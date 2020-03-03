@@ -12,6 +12,7 @@ export default {
     PaginationBottom: { type: Boolean, default: true },
     PaginationPosition: { type: String, default: 'center' },
     RenderTotalRowsNumber: { type: Boolean, default: false }, //whether to display total number of rows
+    RenderTotalRowsNumberBottom: { type: Boolean, default: false },
     RenderPageSizeSelect: { type: Boolean, default: false }, // whether to render 'PageSizeSelect' (works only with Pagination enabled)
     pageSizeOptions: { type: Array, default: () => [10, 20, 40, 80, 100] },
     tblClass: [String, Object, Array], // classes for <table>
